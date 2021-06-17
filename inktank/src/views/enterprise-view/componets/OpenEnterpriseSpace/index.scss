@@ -1,0 +1,342 @@
+@import "@/styles/index.scss";
+.open-enterprise-space {
+	width: 100%;
+	height: calc(100vh - 161px);
+	max-height: calc(100vh - 161px);
+	.open-enterprise {
+		position: absolute;
+		width: 800px;
+		height: 610px;
+		top: 50%;
+		left: 50%;
+		margin-left: -400px;
+		margin-top: -305px;
+		background: $white;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		.top-opration-box {
+			width: 800px;
+			height: 35px;
+			.close-icon-position {
+				position: absolute;
+				right: 10px;
+				top: 10px;
+			}
+			.back-button {
+				position: absolute;
+				top: 10px;
+				left: 10px;
+				.el-icon-arrow-left {
+					font-size: 17px;
+				}
+			}
+		}
+		.button-box {
+			width: 800px;
+			.tip {
+				box-sizing: border-box;
+				padding: 40px;
+				font-size: 16px;
+				font-weight: 400;
+				width: 100%;
+				line-height: normal;
+				font-feature-settings: "kern";
+				text-align: left;
+				b {
+					color: #000;
+				}
+				p {
+					color: #aaaaaa;
+				}
+			}
+			.tip2 {
+				margin-top: 32px;
+				font-size: 16px;
+				font-weight: 400;
+				color: #333333;
+				line-height: normal;
+				font-feature-settings: "kern";
+			}
+			.button-list {
+				width: 100%;
+				display: flex;
+				justify-content: space-around;
+				margin-top: 25px;
+
+				button:hover {
+					background-color: #ec747b;
+					border: 1px solid #ec747b;
+					color: #fff;
+				}
+			}
+		}
+
+		.join-team {
+			.top-box {
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				padding-right: 20px;
+				padding-top: 10px;
+				position: relative;
+				.join-team-back {
+					position: absolute;
+					left: 0;
+				}
+				.join-team-back {
+					display: flex;
+					position: absolute;
+					left: 0;
+					top: 18px;
+					width: 100px;
+					z-index: 2;
+					b {
+						margin: 0 3px;
+					}
+					left {
+						width: 20px;
+						height: 20px;
+						/*兼容ie8-*/
+						/*border:1px solid blue;
+						*/
+					}
+					.left-arrow1,
+					.left-arrow2 {
+						width: 0;
+						height: 0;
+						display: block;
+						// position:absolute;
+						// left:0;
+						// top:0;
+						// z-index:5;
+						/*兼容ie8-*/
+						border-top: 10px transparent dashed;
+						border-left: 10px transparent dashed;
+						border-bottom: 10px transparent dashed;
+						border-right: 10px white solid;
+						overflow: hidden;
+					}
+					.left-arrow1 {
+						border-right: 10px #333 solid;
+					}
+					.left-arrow2 {
+						left: 5px;
+						border-right: 10px #fff solid;
+						top: 0px;
+						position: absolute;
+					}
+				}
+				.close {
+					width: 25px;
+					height: 25px;
+				}
+			}
+			.title {
+				font-size: 18px;
+				border: none;
+				font-weight: 700;
+				font-style: normal;
+				text-align: center;
+			}
+			.search-box {
+				margin: auto;
+				margin-top: 30px;
+				position: relative;
+				width: 570px;
+				height: 50px;
+				.search-input {
+					box-sizing: border-box;
+					padding: 0 70px 0 10px;
+					width: 570px;
+					height: 50px;
+					font-size: 16px;
+				}
+
+				.postion-icon-search-icon {
+					position: absolute;
+					top: 10px;
+					right: 10px;
+					font-size: 30px;
+				}
+			}
+			#search-result {
+				display: block;
+				box-sizing: border-box;
+				padding: 0;
+				line-height: 25px;
+				margin: auto;
+				margin-top: 30px;
+				width: 570px;
+				height: 360px;
+				border: 1px solid #000;
+				.search-result-box {
+					display: flex;
+					width: 100%;
+					height: 100%;
+					.company-list {
+						flex: 1;
+						height: 100%;
+						overflow-y: auto;
+						border-right: 1px solid #aaaaaa;
+						.company-item {
+							height: 45px;
+							line-height: 45px;
+							margin: 0;
+							font-size: 13px;
+							padding: 0 15px;
+							text-align: left;
+							overflow: hidden;
+							word-break: keep-all;
+							white-space: nowrap;
+							text-overflow: ellipsis;
+						}
+						.company-item:hover {
+							background-color: rgba(241, 248, 251, 1);
+						}
+					}
+				}
+				.company-info-box {
+					width: 280px;
+					padding: 0 15px;
+					font-size: 13px;
+					.company-info-data {
+						p {
+							line-height: 40px;
+						}
+					}
+					p {
+						margin: 0;
+						padding: 0;
+					}
+					.company-info-name-box {
+						height: 40px;
+						line-height: 40px;
+						border-bottom: 1px solid #aaaaaa;
+					}
+					.apply-button-box {
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						margin-bottom: 20px;
+						.tip {
+							margin: auto;
+							width: 140px;
+							line-height: 40px;
+							color: red;
+							text-align: center;
+						}
+					}
+					.apply-button {
+						margin-bottom: 20px;
+						width: 240px;
+						height: 40px;
+						background-color: rgba(193, 46, 55, 1);
+						border-radius: 4px;
+						line-height: 17px;
+						text-align: center;
+						color: #fff;
+						border: none;
+						cursor: pointer;
+						outline: none;
+					}
+					#applyed-box {
+						display: none;
+						.applyed {
+							background-color: #b1b1b1;
+							color: #fff;
+						}
+					}
+				}
+			}
+		}
+		#create-enterprise-space {
+			.title {
+				font-size: 22px;
+				border: none;
+				font-weight: 700;
+				font-style: normal;
+				text-align: center;
+			}
+			.form-box {
+				margin: auto;
+				width: 530px;
+				margin-top: 50px;
+				.form-item {
+					display: flex;
+					align-items: center;
+					margin-top: 20px;
+					.select-box {
+						flex: 1;
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						.form-input {
+							border-color: #DCDFE6;
+							width: 30%;
+						}
+					}
+					.code-box {
+						width: 420px;
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+					}
+					.form-lable {
+						display: inline-block;
+						width: 100px;
+						height: 40px;
+						line-height: 40px;
+					}
+					.form-input {
+						box-sizing: border-box;
+						width: 420px;
+						height: 40px;
+						line-height: 40px;
+						padding: 5px;
+						border:1px solid #DCDFE6;
+						border-radius: 4px;
+
+					}
+
+					.code {
+						width: 300px;
+					}
+					.get-code {
+						width: 100px;
+						height: 40px;
+						background-color: rgba(193, 46, 55, 1);
+						color: #fff;
+						border: none;
+						border-radius: 4px;
+						cursor: pointer;
+						outline: none;
+					}
+					.create-botton {
+						margin-top: 20px;
+						width: 530px;
+						height: 40px;
+						background-color: rgba(193, 46, 55, 1);
+						color: #fff;
+						border: none;
+						border-radius: 4px;
+						cursor: pointer;
+						outline: none;
+					}
+					.form-input-includ-components{
+						width: 420px;
+						height: 40px;
+					}
+				}
+				.tip {
+					padding-left: 120px;
+					font-weight: 400;
+					font-style: normal;
+					font-size: 12px;
+					color: #7f7f7f;
+				}
+			}
+		}
+	}
+}

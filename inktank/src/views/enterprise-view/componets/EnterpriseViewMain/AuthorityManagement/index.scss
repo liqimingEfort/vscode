@@ -1,0 +1,50 @@
+.authority-management {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	.authority-management-body {
+		max-width: 1400px;
+		width: 900px;
+		min-height: 260px;
+		.box-title{
+			height: 50px;
+			line-height: 50px;
+			width: 100%;
+			text-align: left;
+		}
+	}
+	.transfer-admin-form{
+		margin-top: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		& > span{
+			display: inline-block;
+			width: 100px;
+		}
+		& > input{
+			width: 200px;
+
+
+		}
+		& > .el-select{
+			width: 200px;
+		}
+		& > .el-input--small{
+			width: 200px;
+			margin-right: 20px;
+		}
+
+		& > .el-button{
+			width: 150px;
+		}
+	}
+	.el-dialog{
+		width: 560px;
+		.code-box{
+			margin-top: 10px;
+			display: inline-block;
+		}
+	}
+
+}

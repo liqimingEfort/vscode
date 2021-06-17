@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="110" height="110" viewBox="0 0 110 110">
+  <defs>
+    <filter id="矩形_2290" x="0" y="0" width="110" height="110" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-color="#00ccbe" flood-opacity="0.278"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="组_880" data-name="组 880" transform="translate(-9467 2401)">
+    <g transform="matrix(1, 0, 0, 1, 9467, -2401)" filter="url(#矩形_2290)">
+      <rect id="矩形_2290-2" data-name="矩形 2290" width="50" height="50" rx="8" transform="translate(30 20)" fill="#00bf84"/>
+    </g>
+    <rect id="矩形_2291" data-name="矩形 2291" width="16" height="17" transform="translate(9513 -2364)" fill="#d6f7f5" opacity="0.75"/>
+    <path id="路径_888" data-name="路径 888" d="M130.9,66.606h-5.815a4.157,4.157,0,0,0-7.847,0h-5.815a2.791,2.791,0,0,0-2.783,2.783V88.866a2.791,2.791,0,0,0,2.783,2.783H130.9a2.791,2.791,0,0,0,2.783-2.783V69.388A2.791,2.791,0,0,0,130.9,66.606Zm-9.739,0A1.391,1.391,0,1,1,119.771,68,1.4,1.4,0,0,1,121.162,66.606Zm2.783,19.478h-9.739V83.3h9.739Zm4.174-5.565H114.206V77.736h13.913v2.783Zm0-5.565H114.206V72.171h13.913v2.783Z" transform="translate(9400.359 -2434.247)" fill="#fff"/>
+  </g>
+</svg>

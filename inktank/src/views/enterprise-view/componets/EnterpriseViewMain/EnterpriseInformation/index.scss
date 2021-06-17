@@ -1,0 +1,171 @@
+// 企业信息
+.enterprise-information-box{
+	max-width: 1400px;
+	min-width: 900px;
+	min-height: 600px;
+	display: flex;
+	position: relative;
+	justify-content: center;
+	.enterprise-information {
+		margin-top: 40px;
+		height: 700px;
+		display: flex;
+		justify-content: center;
+		position: absolute;
+		left: 0;
+		.left-content {
+			max-width: 690px;
+			height: 651px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			position: relative;
+			.top-enterprise-info {
+				display: flex;
+				justify-content: space-between;
+				padding: 28px 45px 0 41px;
+				box-sizing: border-box;
+				max-width: 644px;
+				width: 555px;
+				height: 170px;
+				background: url(./../../../../../assets/enterprise/circular-bg.svg) 100% 100%
+						no-repeat,
+					linear-gradient(to right, rgb(255, 160, 165), rgb(167, 46, 53));
+				border-radius: 12px 12px 0 0;
+				.enterprise-info-left {
+					.enterprise-name {
+						font-size: 20px;
+						font-weight: 400;
+						color: #7d0910;
+						line-height: normal;
+						font-feature-settings: "kern";
+					}
+					.enterprise-id {
+						margin-top: 8px;
+						font-size: 16px;
+						font-weight: 400;
+						color: #fde2e2;
+						line-height: normal;
+						font-feature-settings: "kern";
+					}
+				}
+				.enterprise-info-right {
+					.due-date {
+						font-size: 14px;
+						font-weight: 400;
+						color: #fffcfc;
+						line-height: normal;
+						font-feature-settings: "kern";
+					}
+					.renew-button {
+						margin-top: 7px;
+						max-width: 81px;
+						width: 81px;
+						height: 25px;
+						background-color: rgba(251, 211, 106, 0.643);
+						border-radius: 40px;
+						text-align: center;
+						font-size: 13px;
+						font-weight: 400;
+						color: #fcfcfc;
+						line-height: 25px;
+						font-feature-settings: "kern";
+						cursor: pointer;
+						outline: none;
+						border: none;
+					}
+				}
+			}
+			.enterprise-desc-box {
+				position: absolute;
+				top: 59px;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				background: url(./../../../../../assets/enterprise/vip.svg) no-repeat 100% 100%,
+					linear-gradient(
+						to bottom,
+						rgba(255, 255, 255, 0),
+						rgba(255, 255, 255, 0),
+						rgb(255, 255, 255)
+					);
+				background-position: top;
+			}
+			.enterprise-desc {
+				box-sizing: border-box;
+				// max-width: 690px;
+				width: 584px;
+				height: 475px;
+
+				padding: 104px 50px 0 50px;
+				display: flex;
+
+				.enterprise-desc-item {
+					flex: 1;
+				}
+				.enterprise-desc-item-box {
+					margin-top: 25px;
+					font-size: 16px;
+					font-weight: 400;
+					line-height: 18px;
+					font-feature-settings: "kern";
+					text-align: left;
+					.lable {
+						font-size: 16px;
+						font-weight: 400;
+						color: #7f7f7f;
+					}
+					.value {
+						color: #333333;
+						line-height: normal;
+					}
+					.to-authentication {
+						background: none;
+						cursor: pointer;
+						outline: none;
+						border: none;
+						font-size: 14px;
+						color: #c12e37;
+						line-height: normal;
+						font-feature-settings: "kern";
+					}
+				}
+			}
+			.enterprise-desc-bottom-button {
+				background-color: none;
+				padding-bottom: 35px;
+				padding-left: 50px;
+				.cancellation-of-enterprises {
+					max-width: 83px;
+					width: 83px;
+					height: 30px;
+					line-height: 30px;
+					background-color: #d7d7d7;
+					border-radius: 6px;
+					color: #7f7f7f;
+					border: none;
+				}
+			}
+		}
+		.right-content {
+			max-width: 690px;
+			min-width: 325px;
+			// width: 690px;
+			height: 600px;
+			background-color: #fff;
+			border-radius: 15px 15px 0 0;
+			padding: 28px 45px 0 41px;
+			margin-left: 20px;
+			line-height: 30px;
+			.enterprise-logo {
+				max-width: 100px;
+				width: 100px;
+				height: auto;
+			}
+			.enterprise-survey {
+				text-align: left;
+			}
+		}
+	}
+}
+

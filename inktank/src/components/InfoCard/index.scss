@@ -1,0 +1,42 @@
+.public-component-info-card-list{
+	.el-card__body{
+		padding: 15px;
+	}
+	.info-card-box{
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 340px;
+		// height: 100px;
+		padding: 5px 20px;
+		background-color: #fff;
+		.left-icon{
+			width: 60px;
+			height: 60px;
+		}
+		.right-box{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			width: 230px;
+			// height: 60px;
+			text-align: left;
+			.right-content-profile-info{
+				font-weight: 400;
+				font-size: 12px;
+				margin: 0;
+				color: #AAAAAA;
+				overflow: hidden;
+				word-break: keep-all;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+			.right-content-name{
+				font-weight: 400;
+				font-size: 14px;
+				color:#000;
+			}
+		}
+	}
+}

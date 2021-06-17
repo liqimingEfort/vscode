@@ -1,0 +1,46 @@
+/*lqm 2021-3-25 add*/
+$prefix-sidebar:$prefix+'home';
+
+.#{$prefix-sidebar} {
+    & .navbar {
+        background: #fff;
+        width: 100%;
+        position: fixed;
+				z-index: 1000;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        border-bottom: 1px solid #ccc
+    }
+
+    & .sidebar-container {
+        width: 120px;
+        height: 95%;
+        background: #fff;
+        margin-top: 100px;
+        position: fixed;
+        font-size: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1001;
+        overflow: hidden;
+
+        & .footer {
+            width: 100%;
+            background: red;
+            position: absolute;
+            bottom: 100px;
+        }
+    }
+
+    & .main-container {
+        min-height: 100%;
+        position: relative;
+        transition: margin-left .28s;
+        top: 100px;
+        bottom: 0;
+        padding-left: 119px;
+    }
+}

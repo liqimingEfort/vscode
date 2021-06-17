@@ -1,5 +1,6 @@
 .DS_Store
 .cache
+.history
 npm-debug.log
 Thumbs.db
 node_modules/

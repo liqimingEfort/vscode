@@ -1,0 +1,44 @@
+@import "@/styles/index.scss";
+
+.organizational-structure {
+	max-width: 900px;
+	margin-top: 40px;
+	display: flex;
+	justify-content: center;
+	.organizational-structure-left {
+		padding-left: 10px;
+		padding-right: 10px;
+		width: 250px;
+		height: 500px;
+		background-color: $white;
+		.organizational-structure-left-title {
+			height: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			border-bottom: 1px solid $borderBotton;
+		}
+	}
+	.organizational-structure-right {
+		max-width: 1119px;
+		flex: 1;
+		background-color: $white;
+		margin-left: 15px;
+		padding: 0 10px 0 15px;
+		.organizational-structure-right-title {
+
+			height: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			border-bottom: 1px solid $borderBotton;
+			.left{
+				margin-right: 10px;
+				.operation-box {
+					margin-left: 10px;
+				}
+			}
+
+		}
+	}
+}

@@ -1,0 +1,146 @@
+$mainColor: rgba(193, 46, 55, 1);
+$navBorder-color: rgba(242, 242, 242, 1);
+$mainUnchecked: rgba(200, 200, 200, 1);
+$tipColor: rgba(170, 169, 169, 1);
+$mainTextColor: rgba(51, 51, 51, 1);
+$formLeftColor: rgb(120, 120, 120);
+
+// * {
+//   padding: 0;
+//   margin: 0;
+//   box-sizing: border-box;
+//   outline: none;
+// }
+
+.login-module {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    background-color: #ffffff;
+  }
+  .unchecked-bg {
+    background-color: $mainUnchecked;
+  }
+
+  .main-bg {
+    background-color: $mainColor;
+    color: #ffffff;
+  }
+
+  .right {
+    text-align: right;
+  }
+
+  .left {
+    text-align: left;
+  }
+
+  .show {
+    display: block;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .cursor {
+    cursor: pointer;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .f18 {
+    font-size: 18px;
+  }
+  .position-r {
+    position: relative;
+  }
+  .flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .flex-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .bg-main-color {
+    background-color: $mainColor !important;
+    color: #ffffff !important;
+  }
+  .text-main-color {
+    color: $mainColor;
+  }
+  .margin-t-50 {
+    margin-top: 50px;
+  }
+  .margin-b-30 {
+    margin-bottom: 30px;
+  }
+  .width-100 {
+    width: 100%;
+  }
+  .disable-btn {
+    opacity: 0.5;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  .get-smscode-btn {
+    input {
+      border-radius: 0;
+    }
+    .el-button {
+      border: 0;
+      border-radius: 20px;
+    }
+  }
+  .el-input > input {
+    border-radius: 30px;
+    padding: 11px 30px;
+    border: 0;
+    background-color: #f7f7f7;
+  }
+
+  .el-input-group__append {
+    border: 0;
+    padding: 0;
+  }
+  .form-item-getimgcode {
+    img {
+      display: block;
+    }
+  }
+
+  .el-checkbox__input.is-checked .el-checkbox__inner,
+  .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+    border-color: $mainColor !important;
+    background-color: $mainColor !important;
+  }
+  .el-checkbox__input.is-checked + .el-checkbox__label {
+    color: inherit !important;
+  }
+  .el-checkbox__input.is-focus .el-checkbox__inner {
+    border-color: inherit !important;
+  }
+  .el-icon-close {
+    font-size: 24px;
+  }
+
+  .submit-btn-bottom {
+    margin-top: -15px;
+  }
+}

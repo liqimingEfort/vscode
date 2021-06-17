@@ -1,0 +1,46 @@
+.lead{
+	padding: 0px 30px;
+	.lead-header{
+		margin-top: 15px;
+		display: flex;
+		justify-content: space-between;
+		.title-name{
+			display: inline-block;
+			height: 26px;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 20px;
+			padding-left: 10px;
+			border-left: 6px solid rgba(2, 167, 240, 1);
+		}
+		.right-filter-type{
+			display: flex;
+			.filter-item{
+				margin-left: 20px;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				.el-select{
+					width: 130px;
+					margin-left: 8px;
+				}
+			}
+			.filter-item:hover{
+				color: rgb(2, 167, 240);
+			}
+		}
+	}
+	.lead-content-box{
+		margin-top:  30px;
+		i{
+			font-size: 20px;
+		}
+		.collapse-title-text{
+			margin-left: 3px;
+		}
+		.el-collapse-item__header{
+			padding-left: 7px;
+		}
+	}
+}
+

@@ -1,0 +1,37 @@
+.public-component-list-item-box {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #fff;
+  height: 50px;
+  .public-component-list-item-col {
+    flex: 1;
+		color: #AAAAAA;
+		display: flex;
+		justify-content: center;
+		.dir-icon{
+			width: 20px;
+			height: 20px;
+			margin-right: 5px;
+		}
+  }
+	.public-component-list-item-col:last-of-type{
+		// justify-content: flex-end;
+		.public-component-list-item-col-text{
+			text-align: right;
+		}
+	}
+
+	.public-component-list-item-col-block{
+		color: #000;
+	}
+
+	.public-component-list-item-col-text{
+		display: inline-block;
+		width: 200px;
+		overflow: hidden;
+		word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+	}
+}
