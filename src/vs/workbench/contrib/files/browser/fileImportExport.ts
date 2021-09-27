@@ -318,16 +318,16 @@ export class BrowserFileUpload {
 			let res = await reader.read();
 			while (!res.done) {
 				if (token.isCancellationRequested) {
-					return undefined;
+					break;
 				}
 
 				// Write buffer into stream but make sure to wait
-				// in case the highWaterMark is reached
+				// in case the `highWaterMark` is reached
 				const buffer = VSBuffer.wrap(res.value);
 				await writeableStream.write(buffer);
 
 				if (token.isCancellationRequested) {
-					return undefined;
+					break;
 				}
 
 				// Report progress
@@ -378,9 +378,9 @@ export class BrowserFileUpload {
 
 //#endregion
 
-//#region Native File Import (drag and drop)
+//#region External File Import (drag and drop)
 
-export class NativeFileImport {
+export class ExternalFileImport {
 
 	constructor(
 		@IFileService private readonly fileService: IFileService,
@@ -417,8 +417,12 @@ export class NativeFileImport {
 
 	private async doImport(target: ExplorerItem, source: DragEvent, token: CancellationToken): Promise<void> {
 
+		// Activate all providers for the resources dropped
+		const candidateFiles = coalesce(extractEditorsDropData(source).map(editor => editor.resource));
+		await Promise.all(candidateFiles.map(resource => this.fileService.activateProvider(resource.scheme)));
+
 		// Check for dropped external files to be folders
-		const files = coalesce(extractEditorsDropData(source, true).filter(editor => URI.isUri(editor.resource) && this.fileService.canHandleResource(editor.resource)).map(editor => editor.resource));
+		const files = coalesce(candidateFiles.filter(resource => this.fileService.canHandleResource(resource)));
 		const resolvedFiles = await this.fileService.resolveAll(files.map(file => ({ resource: file })));
 
 		if (token.isCancellationRequested) {

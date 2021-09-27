@@ -31,6 +31,16 @@
 								]
 							},
 							"description": "Build arguments."
+						},
+						"cacheFrom": {
+							"type": [
+								"string",
+								"array"
+							],
+							"description": "The image to consider as a cache. Use an array to specify multiple images.",
+							"items": {
+								"type": "string"
+							}
 						}
 					},
 					"required": [
@@ -62,10 +72,6 @@
 				"containerUser": {
 					"type": "string",
 					"description": "The user the container will be started with. The default is the user on the Docker image."
-				},
-				"updateRemoteUserUID": {
-					"type": "boolean",
-					"description": "Controls whether on Linux the container's user should be updated with the local user's UID and GID. On by default."
 				},
 				"mounts": {
 					"type": "array",
@@ -120,11 +126,19 @@
 				},
 				"forwardPorts": {
 					"type": "array",
-					"description": "Ports that are forwarded from the container to the local machine.",
+					"description": "Ports that are forwarded from the container to the local machine. Can be an integer port number, or a string of the format \"host:port_number\".",
 					"items": {
-						"type": "integer",
-						"maximum": 65535,
-						"minimum": 0
+						"oneOf": [
+							{
+								"type": "integer",
+								"maximum": 65535,
+								"minimum": 0
+							},
+							{
+								"type": "string",
+								"pattern": "^([a-z0-9\\-]+):(\\d{1,5})$"
+							}
+						]
 					}
 				},
 				"portsAttributes": {
@@ -139,6 +153,7 @@
 									"enum": [
 										"notify",
 										"openBrowser",
+										"openBrowserOnce",
 										"openPreview",
 										"silent",
 										"ignore"
@@ -146,6 +161,7 @@
 									"enumDescriptions": [
 										"Shows a notification when a port is automatically forwarded.",
 										"Opens the browser when the port is automatically forwarded. Depending on your settings, this could open an embedded browser.",
+										"Opens the browser when the port is automatically forwarded, but only the first time the port is forward during a session. Depending on your settings, this could open an embedded browser.",
 										"Opens a preview in the same window when the port is automatically forwarded.",
 										"Shows no notification and takes no action when this port is automatically forwarded.",
 										"This port will not be automatically forwarded."
@@ -253,6 +269,10 @@
 					"markdownDescription": "Set default properties that are applied to all ports that don't get properties from the setting `remote.portsAttributes`. For example:\n\n```\n{\n  \"onAutoForward\": \"ignore\"\n}\n```",
 					"additionalProperties": false
 				},
+				"updateRemoteUserUID": {
+					"type": "boolean",
+					"description": "Controls whether on Linux the container's user should be updated with the local user's UID and GID. On by default."
+				},
 				"remoteEnv": {
 					"type": "object",
 					"additionalProperties": {
@@ -334,8 +354,7 @@
 						"onCreateCommand",
 						"updateContentCommand",
 						"postCreateCommand",
-						"postStartCommand",
-						"postAttachCommand"
+						"postStartCommand"
 					],
 					"description": "The user command to wait for before continuing execution in the background while the UI is starting up. The default is \"updateContentCommand\"."
 				},
@@ -413,6 +432,16 @@
 								]
 							},
 							"description": "Build arguments."
+						},
+						"cacheFrom": {
+							"type": [
+								"string",
+								"array"
+							],
+							"description": "The image to consider as a cache. Use an array to specify multiple images.",
+							"items": {
+								"type": "string"
+							}
 						}
 					},
 					"additionalProperties": false
@@ -441,10 +470,6 @@
 				"containerUser": {
 					"type": "string",
 					"description": "The user the container will be started with. The default is the user on the Docker image."
-				},
-				"updateRemoteUserUID": {
-					"type": "boolean",
-					"description": "Controls whether on Linux the container's user should be updated with the local user's UID and GID. On by default."
 				},
 				"mounts": {
 					"type": "array",
@@ -499,11 +524,19 @@
 				},
 				"forwardPorts": {
 					"type": "array",
-					"description": "Ports that are forwarded from the container to the local machine.",
+					"description": "Ports that are forwarded from the container to the local machine. Can be an integer port number, or a string of the format \"host:port_number\".",
 					"items": {
-						"type": "integer",
-						"maximum": 65535,
-						"minimum": 0
+						"oneOf": [
+							{
+								"type": "integer",
+								"maximum": 65535,
+								"minimum": 0
+							},
+							{
+								"type": "string",
+								"pattern": "^([a-z0-9\\-]+):(\\d{1,5})$"
+							}
+						]
 					}
 				},
 				"portsAttributes": {
@@ -518,6 +551,7 @@
 									"enum": [
 										"notify",
 										"openBrowser",
+										"openBrowserOnce",
 										"openPreview",
 										"silent",
 										"ignore"
@@ -525,6 +559,7 @@
 									"enumDescriptions": [
 										"Shows a notification when a port is automatically forwarded.",
 										"Opens the browser when the port is automatically forwarded. Depending on your settings, this could open an embedded browser.",
+										"Opens the browser when the port is automatically forwarded, but only the first time the port is forward during a session. Depending on your settings, this could open an embedded browser.",
 										"Opens a preview in the same window when the port is automatically forwarded.",
 										"Shows no notification and takes no action when this port is automatically forwarded.",
 										"This port will not be automatically forwarded."
@@ -632,6 +667,10 @@
 					"markdownDescription": "Set default properties that are applied to all ports that don't get properties from the setting `remote.portsAttributes`. For example:\n\n```\n{\n  \"onAutoForward\": \"ignore\"\n}\n```",
 					"additionalProperties": false
 				},
+				"updateRemoteUserUID": {
+					"type": "boolean",
+					"description": "Controls whether on Linux the container's user should be updated with the local user's UID and GID. On by default."
+				},
 				"remoteEnv": {
 					"type": "object",
 					"additionalProperties": {
@@ -713,8 +752,7 @@
 						"onCreateCommand",
 						"updateContentCommand",
 						"postCreateCommand",
-						"postStartCommand",
-						"postAttachCommand"
+						"postStartCommand"
 					],
 					"description": "The user command to wait for before continuing execution in the background while the UI is starting up. The default is \"updateContentCommand\"."
 				},
@@ -797,10 +835,6 @@
 					"type": "string",
 					"description": "The user the container will be started with. The default is the user on the Docker image."
 				},
-				"updateRemoteUserUID": {
-					"type": "boolean",
-					"description": "Controls whether on Linux the container's user should be updated with the local user's UID and GID. On by default."
-				},
 				"mounts": {
 					"type": "array",
 					"description": "Mount points to set up when creating the container. See Docker's documentation for the --mount option for the supported syntax.",
@@ -854,11 +888,19 @@
 				},
 				"forwardPorts": {
 					"type": "array",
-					"description": "Ports that are forwarded from the container to the local machine.",
+					"description": "Ports that are forwarded from the container to the local machine. Can be an integer port number, or a string of the format \"host:port_number\".",
 					"items": {
-						"type": "integer",
-						"maximum": 65535,
-						"minimum": 0
+						"oneOf": [
+							{
+								"type": "integer",
+								"maximum": 65535,
+								"minimum": 0
+							},
+							{
+								"type": "string",
+								"pattern": "^([a-z0-9\\-]+):(\\d{1,5})$"
+							}
+						]
 					}
 				},
 				"portsAttributes": {
@@ -873,6 +915,7 @@
 									"enum": [
 										"notify",
 										"openBrowser",
+										"openBrowserOnce",
 										"openPreview",
 										"silent",
 										"ignore"
@@ -880,6 +923,7 @@
 									"enumDescriptions": [
 										"Shows a notification when a port is automatically forwarded.",
 										"Opens the browser when the port is automatically forwarded. Depending on your settings, this could open an embedded browser.",
+										"Opens the browser when the port is automatically forwarded, but only the first time the port is forward during a session. Depending on your settings, this could open an embedded browser.",
 										"Opens a preview in the same window when the port is automatically forwarded.",
 										"Shows no notification and takes no action when this port is automatically forwarded.",
 										"This port will not be automatically forwarded."
@@ -987,6 +1031,10 @@
 					"markdownDescription": "Set default properties that are applied to all ports that don't get properties from the setting `remote.portsAttributes`. For example:\n\n```\n{\n  \"onAutoForward\": \"ignore\"\n}\n```",
 					"additionalProperties": false
 				},
+				"updateRemoteUserUID": {
+					"type": "boolean",
+					"description": "Controls whether on Linux the container's user should be updated with the local user's UID and GID. On by default."
+				},
 				"remoteEnv": {
 					"type": "object",
 					"additionalProperties": {
@@ -1068,8 +1116,7 @@
 						"onCreateCommand",
 						"updateContentCommand",
 						"postCreateCommand",
-						"postStartCommand",
-						"postAttachCommand"
+						"postStartCommand"
 					],
 					"description": "The user command to wait for before continuing execution in the background while the UI is starting up. The default is \"updateContentCommand\"."
 				},
@@ -1156,6 +1203,10 @@
 					],
 					"description": "Action to take when the VS Code window is closed. The default is to stop the containers."
 				},
+				"overrideCommand": {
+					"type": "boolean",
+					"description": "Whether to overwrite the command specified in the image. The default is false."
+				},
 				"name": {
 					"type": "string",
 					"description": "A name to show for the workspace folder."
@@ -1175,11 +1226,19 @@
 				},
 				"forwardPorts": {
 					"type": "array",
-					"description": "Ports that are forwarded from the container to the local machine.",
+					"description": "Ports that are forwarded from the container to the local machine. Can be an integer port number, or a string of the format \"host:port_number\".",
 					"items": {
-						"type": "integer",
-						"maximum": 65535,
-						"minimum": 0
+						"oneOf": [
+							{
+								"type": "integer",
+								"maximum": 65535,
+								"minimum": 0
+							},
+							{
+								"type": "string",
+								"pattern": "^([a-z0-9\\-]+):(\\d{1,5})$"
+							}
+						]
 					}
 				},
 				"portsAttributes": {
@@ -1194,6 +1253,7 @@
 									"enum": [
 										"notify",
 										"openBrowser",
+										"openBrowserOnce",
 										"openPreview",
 										"silent",
 										"ignore"
@@ -1201,6 +1261,7 @@
 									"enumDescriptions": [
 										"Shows a notification when a port is automatically forwarded.",
 										"Opens the browser when the port is automatically forwarded. Depending on your settings, this could open an embedded browser.",
+										"Opens the browser when the port is automatically forwarded, but only the first time the port is forward during a session. Depending on your settings, this could open an embedded browser.",
 										"Opens a preview in the same window when the port is automatically forwarded.",
 										"Shows no notification and takes no action when this port is automatically forwarded.",
 										"This port will not be automatically forwarded."
@@ -1308,6 +1369,10 @@
 					"markdownDescription": "Set default properties that are applied to all ports that don't get properties from the setting `remote.portsAttributes`. For example:\n\n```\n{\n  \"onAutoForward\": \"ignore\"\n}\n```",
 					"additionalProperties": false
 				},
+				"updateRemoteUserUID": {
+					"type": "boolean",
+					"description": "Controls whether on Linux the container's user should be updated with the local user's UID and GID. On by default."
+				},
 				"remoteEnv": {
 					"type": "object",
 					"additionalProperties": {
@@ -1389,8 +1454,7 @@
 						"onCreateCommand",
 						"updateContentCommand",
 						"postCreateCommand",
-						"postStartCommand",
-						"postAttachCommand"
+						"postStartCommand"
 					],
 					"description": "The user command to wait for before continuing execution in the background while the UI is starting up. The default is \"updateContentCommand\"."
 				},
@@ -1465,11 +1529,19 @@
 				},
 				"forwardPorts": {
 					"type": "array",
-					"description": "Ports that are forwarded from the container to the local machine.",
+					"description": "Ports that are forwarded from the container to the local machine. Can be an integer port number, or a string of the format \"host:port_number\".",
 					"items": {
-						"type": "integer",
-						"maximum": 65535,
-						"minimum": 0
+						"oneOf": [
+							{
+								"type": "integer",
+								"maximum": 65535,
+								"minimum": 0
+							},
+							{
+								"type": "string",
+								"pattern": "^([a-z0-9\\-]+):(\\d{1,5})$"
+							}
+						]
 					}
 				},
 				"portsAttributes": {
@@ -1484,6 +1556,7 @@
 									"enum": [
 										"notify",
 										"openBrowser",
+										"openBrowserOnce",
 										"openPreview",
 										"silent",
 										"ignore"
@@ -1491,6 +1564,7 @@
 									"enumDescriptions": [
 										"Shows a notification when a port is automatically forwarded.",
 										"Opens the browser when the port is automatically forwarded. Depending on your settings, this could open an embedded browser.",
+										"Opens the browser when the port is automatically forwarded, but only the first time the port is forward during a session. Depending on your settings, this could open an embedded browser.",
 										"Opens a preview in the same window when the port is automatically forwarded.",
 										"Shows no notification and takes no action when this port is automatically forwarded.",
 										"This port will not be automatically forwarded."
@@ -1598,6 +1672,10 @@
 					"markdownDescription": "Set default properties that are applied to all ports that don't get properties from the setting `remote.portsAttributes`. For example:\n\n```\n{\n  \"onAutoForward\": \"ignore\"\n}\n```",
 					"additionalProperties": false
 				},
+				"updateRemoteUserUID": {
+					"type": "boolean",
+					"description": "Controls whether on Linux the container's user should be updated with the local user's UID and GID. On by default."
+				},
 				"remoteEnv": {
 					"type": "object",
 					"additionalProperties": {
@@ -1679,8 +1757,7 @@
 						"onCreateCommand",
 						"updateContentCommand",
 						"postCreateCommand",
-						"postStartCommand",
-						"postAttachCommand"
+						"postStartCommand"
 					],
 					"description": "The user command to wait for before continuing execution in the background while the UI is starting up. The default is \"updateContentCommand\"."
 				},
